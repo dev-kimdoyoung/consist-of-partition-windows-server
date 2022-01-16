@@ -1,0 +1,19 @@
+---
+# vars file for 01-make-user-and-group
+#### Required ####
+# name, 
+#### optional ####
+# description, fullname, password, password_expired (yes : 로그인 시 패스워드 변경), profile, state (present = )
+existed_user_list:
+- {
+  name: "tech",
+  fullname: "system engineer account",
+  password: "admin",
+  password_expired: yes,    # yes : 로그인 시, 패스워드 변경 | no
+  description: "조회용 계정",
+}
+
+remove_user_list:
+- {
+  name: ""
+}

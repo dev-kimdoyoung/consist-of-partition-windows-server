@@ -1,0 +1,7 @@
+---
+- name: 유저 및 윈도우 파티션 구성
+  hosts: windows_group
+  become: yes
+  roles:
+    - manage_user_group
+    - manage_partition

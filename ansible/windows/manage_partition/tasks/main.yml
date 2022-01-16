@@ -1,0 +1,16 @@
+---
+# tasks file for manage_partition
+# diskmgmt.msc
+
+- name: Create a partition with {{ item.driver_letter }} ( {{ item.driver_number }} ) and activate it
+  community.windows.win_partition:
+    drive_letter: {{ item.driver_letter }}
+    disk_number: {{ item.driver_number }}
+    active: {{ item.active }}
+  loop: {{ manage_windows_partition }}
+
+# - name: Delete {{ item.disk_number }} partition
+#   community.windows.win_partition:
+#     disk_number: {{ item.disk_number }}
+#     state: absent
+#   loop: {{ remove_windows_partition }}

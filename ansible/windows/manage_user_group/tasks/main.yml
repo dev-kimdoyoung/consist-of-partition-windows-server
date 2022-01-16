@@ -1,0 +1,22 @@
+---
+# tasks file for 01-make-user-and-group
+
+# 유저 생성 또는 업데이트
+- name: Ensure user bob is added or updated
+  ansible.windows.win_user:
+    fullname: "{{ item.fullname }}"
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    password_expired: {{ item.password_expired }}
+    description: "{{ item.description }}"
+    state: present
+    groups:
+      - Users
+  loop: "{{ existed_user_list }}"
+
+# 유저 제거
+- name: Ensure user bob is removed
+  ansible.windows.win_user:
+    name: "{{ item.name }}"
+    state: absent
+  loop: "{{ remove_user_list }}"

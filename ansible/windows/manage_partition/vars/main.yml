@@ -1,0 +1,16 @@
+---
+# vars file for manage_partition
+# active, drive_letter, mbr_type, state
+
+manage_windows_partition:
+- {
+  active: yes,
+  drive_letter: D,
+  driver_number: 1,
+  # mbr_type: "",
+}
+
+remove_windows_partition:
+- {
+  disk_number: 1,
+}
